@@ -1,4 +1,4 @@
-# peer lifecycle chaincode package products.tar.gz --path github.com/hyperledger/fabric-samples/chaincode/products --lang golang --label $1
+# peer lifecycle chaincode package products.tar.gz --path ../chaincode/products --lang golang --label $1
 
 # export CORE_PEER_LOCALMSPID=superadminMSP
 # export CORE_PEER_TLS_ROOTCERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/superadmin.sosh.com/peers/peer0.superadmin.sosh.com/tls/ca.crt
