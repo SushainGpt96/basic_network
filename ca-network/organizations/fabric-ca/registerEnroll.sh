@@ -598,10 +598,10 @@ function createOrderer {
   echo "## Generate the admin msp"
   echo
   set -x
-	fabric-ca-client enroll -u https://ordererAdmin:ordererAdminpw@localhost:9054 --caname ca-orderer -M ${PWD}/organizations/ordererOrganizations/product.com/users/Admin@city1.product.com/msp --tls.certfiles ${PWD}/organizations/fabric-ca/ordererOrg/tls-cert.pem
+	fabric-ca-client enroll -u https://ordererAdmin:ordererAdminpw@localhost:9054 --caname ca-orderer -M ${PWD}/organizations/ordererOrganizations/product.com/users/Admin@product.com/msp --tls.certfiles ${PWD}/organizations/fabric-ca/ordererOrg/tls-cert.pem
   set +x
 
-  cp ${PWD}/organizations/ordererOrganizations/product.com/msp/config.yaml ${PWD}/organizations/ordererOrganizations/product.com/users/Admin@city1.product.com/msp/config.yaml
+  cp ${PWD}/organizations/ordererOrganizations/product.com/msp/config.yaml ${PWD}/organizations/ordererOrganizations/product.com/users/Admin@product.com/msp/config.yaml
 
 }
 # createcity1

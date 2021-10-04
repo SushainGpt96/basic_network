@@ -1,6 +1,6 @@
 # peer lifecycle chaincode package products.tar.gz --path ../chaincode/products --lang golang --label $1
 
-# export CORE_PEER_LOCALMSPID=superadminMSP
+# export CORE_PEER_LOCALMSPID=city1MSP
 # export CORE_PEER_TLS_ROOTCERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/superadmin.sosh.com/peers/peer0.superadmin.sosh.com/tls/ca.crt
 # export CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/superadmin.sosh.com/users/Admin@superadmin.sosh.com/msp
 # export CORE_PEER_ADDRESS=peer0.superadmin.sosh.com:7051
