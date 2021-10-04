@@ -1,4 +1,4 @@
-module products.go
+module products
 
 go 1.17
 

@@ -1,4 +1,4 @@
-peer lifecycle chaincode package products.tar.gz --path ../chaincode/products --lang golang --label $1
+peer lifecycle chaincode package products.tar.gz --path github.com/hyperledger/fabric/chaincode/products --lang golang --label basic_1.0
 
 #Globals for City 1
 export CORE_PEER_LOCALMSPID=city1MSP

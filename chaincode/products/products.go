@@ -149,7 +149,7 @@ func (s *SmartContract) ProductExists(ctx contractapi.TransactionContextInterfac
 }
 
 // TransferProduct updates the origin field of product with given name in world state.
-func (s *SmartContract) TransferAsset(ctx contractapi.TransactionContextInterface, name string, newOrigin string) error {
+func (s *SmartContract) TransferProduct(ctx contractapi.TransactionContextInterface, name string, newOrigin string) error {
 	product, err := s.ViewProduct(ctx, name)
 	if err != nil {
 		return err

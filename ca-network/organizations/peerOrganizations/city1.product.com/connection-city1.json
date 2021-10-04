@@ -27,7 +27,7 @@
         "peer0.city1.product.com": {
             "url": "grpcs://peer0.city1.product.com:7051",
             "tlsCACerts": {
-                "pem": "-----BEGIN CERTIFICATE-----\nMIICFjCCAb2gAwIBAgIUEwiGYqbfMmfTtyVcM5TDG9NB+wYwCgYIKoZIzj0EAwIw\naDELMAkGA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQK\nEwtIeXBlcmxlZGdlcjEPMA0GA1UECxMGRmFicmljMRkwFwYDVQQDExBmYWJyaWMt\nY2Etc2VydmVyMB4XDTIxMTAwMTA4NTEwMFoXDTM2MDkyNzA4NTEwMFowaDELMAkG\nA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQKEwtIeXBl\ncmxlZGdlcjEPMA0GA1UECxMGRmFicmljMRkwFwYDVQQDExBmYWJyaWMtY2Etc2Vy\ndmVyMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEGzKz8ftyHVdR5KvwVIY/hA99\nXwNNtu50SFxtrdFmLqLLROmo9IslqkVZQrT9J8YS9PKuKtxZ3k+32zM1mjJQzqNF\nMEMwDgYDVR0PAQH/BAQDAgEGMBIGA1UdEwEB/wQIMAYBAf8CAQEwHQYDVR0OBBYE\nFDXaZV+/6H39Pm4PZes13zADrTXMMAoGCCqGSM49BAMCA0cAMEQCIFl9LXjMdnet\nHf+C8a/vfXstxvaB6HAFubHH7nY1aWCBAiBxrolaDrzV9YWUIAUrWxpjNQl6d/wm\n7x/8Ruvw/cK7Gg==\n-----END CERTIFICATE-----\n"
+                "pem": ""
             },
             "grpcOptions": {
                 "ssl-target-name-override": "peer0.city1.product.com",
@@ -37,7 +37,7 @@
         "peer1.city1.product.com": {
             "url": "grpcs://peer1.city1.product.com:8051",
             "tlsCACerts": {
-                "pem": "-----BEGIN CERTIFICATE-----\nMIICFjCCAb2gAwIBAgIUEwiGYqbfMmfTtyVcM5TDG9NB+wYwCgYIKoZIzj0EAwIw\naDELMAkGA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQK\nEwtIeXBlcmxlZGdlcjEPMA0GA1UECxMGRmFicmljMRkwFwYDVQQDExBmYWJyaWMt\nY2Etc2VydmVyMB4XDTIxMTAwMTA4NTEwMFoXDTM2MDkyNzA4NTEwMFowaDELMAkG\nA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQKEwtIeXBl\ncmxlZGdlcjEPMA0GA1UECxMGRmFicmljMRkwFwYDVQQDExBmYWJyaWMtY2Etc2Vy\ndmVyMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEGzKz8ftyHVdR5KvwVIY/hA99\nXwNNtu50SFxtrdFmLqLLROmo9IslqkVZQrT9J8YS9PKuKtxZ3k+32zM1mjJQzqNF\nMEMwDgYDVR0PAQH/BAQDAgEGMBIGA1UdEwEB/wQIMAYBAf8CAQEwHQYDVR0OBBYE\nFDXaZV+/6H39Pm4PZes13zADrTXMMAoGCCqGSM49BAMCA0cAMEQCIFl9LXjMdnet\nHf+C8a/vfXstxvaB6HAFubHH7nY1aWCBAiBxrolaDrzV9YWUIAUrWxpjNQl6d/wm\n7x/8Ruvw/cK7Gg==\n-----END CERTIFICATE-----\n"
+                "pem": ""
             },
             "grpcOptions": {
                 "ssl-target-name-override": "peer1.city1.product.com",
@@ -50,7 +50,7 @@
             "url": "https://ca_city1:7054",
             "caName": "ca-city1",
             "tlsCACerts": {
-                "pem": "-----BEGIN CERTIFICATE-----\nMIICFjCCAb2gAwIBAgIUEwiGYqbfMmfTtyVcM5TDG9NB+wYwCgYIKoZIzj0EAwIw\naDELMAkGA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQK\nEwtIeXBlcmxlZGdlcjEPMA0GA1UECxMGRmFicmljMRkwFwYDVQQDExBmYWJyaWMt\nY2Etc2VydmVyMB4XDTIxMTAwMTA4NTEwMFoXDTM2MDkyNzA4NTEwMFowaDELMAkG\nA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQKEwtIeXBl\ncmxlZGdlcjEPMA0GA1UECxMGRmFicmljMRkwFwYDVQQDExBmYWJyaWMtY2Etc2Vy\ndmVyMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEGzKz8ftyHVdR5KvwVIY/hA99\nXwNNtu50SFxtrdFmLqLLROmo9IslqkVZQrT9J8YS9PKuKtxZ3k+32zM1mjJQzqNF\nMEMwDgYDVR0PAQH/BAQDAgEGMBIGA1UdEwEB/wQIMAYBAf8CAQEwHQYDVR0OBBYE\nFDXaZV+/6H39Pm4PZes13zADrTXMMAoGCCqGSM49BAMCA0cAMEQCIFl9LXjMdnet\nHf+C8a/vfXstxvaB6HAFubHH7nY1aWCBAiBxrolaDrzV9YWUIAUrWxpjNQl6d/wm\n7x/8Ruvw/cK7Gg==\n-----END CERTIFICATE-----\n"
+                "pem": ""
             },
             "httpOptions": {
                 "verify": false
