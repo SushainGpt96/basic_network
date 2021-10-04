@@ -1,6 +1,7 @@
 /*
 SPDX-License-Identifier: Apache-2.0
 */
+
 package main
 
 import (
@@ -136,29 +137,6 @@ func (s *SmartContract) DeleteProduct(ctx contractapi.TransactionContextInterfac
 
 	return ctx.GetStub().DelState(name)
 }
-
-// DeleteAllProducts deleted all products found in world state
-func (s *SmartContract) DeleteAllProducts(ctx contractapi.TransactionContextInterface)  error {
-	// range query with empty string for startKey and endKey does an
-	// open-ended query of all assets in the chaincode namespace.
-	resultsIterator, err := ctx.GetStub().GetStateByRange("", "")
-	if err != nil {
-		return nil, err
-	}
-	defer resultsIterator.Close()
-
-	var products []*Product
-	for resultsIterator.HasNext() {
-		queryResponse, err := resultsIterator.Next()
-		if err != nil {
-			return nil, err
-		}
-	
-	}
-	return ctx.GetStub().DelState(products)
-	
-}
-
 
 // ProductExists returns true when product with given name exists in world state
 func (s *SmartContract) ProductExists(ctx contractapi.TransactionContextInterface, name string) (bool, error) {
