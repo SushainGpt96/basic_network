@@ -1,5 +1,12 @@
 #!/bin/bash
 
+docker rm -f $(docker ps -aq)
+docker image prune
+docker volume prune
+docker ps -a
+docker image
+
+
 docker kill $(docker ps -q)
 docker rm $(docker ps -q)
 set -a

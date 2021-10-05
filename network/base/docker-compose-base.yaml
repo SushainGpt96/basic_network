@@ -1,4 +1,4 @@
-version: "2"
+version: "3.7"
 
 services:
   orderer.product.com:
@@ -7,6 +7,7 @@ services:
       file: peer-base.yaml
       service: orderer-base
     volumes:
+      # - ./:/etc/hyperledger/configtx 
       - ../channel-artifacts/genesis.block:/var/hyperledger/orderer/orderer.genesis.block
       - ../crypto-config/ordererOrganizations/product.com/orderers/orderer.product.com/msp:/var/hyperledger/orderer/msp
       - ../crypto-config/ordererOrganizations/product.com/orderers/orderer.Product.com/tls/:/var/hyperledger/orderer/tls

@@ -38,13 +38,20 @@ This command will start generating the certificates of the above mentioned organ
 
 #### FABRIC-NETWORK
 
-Go to the network directory and follow the commands:
-
 ```sh
-sudo ./clean.sh
+cd ../network
 ```
 
-This command will clean all the containers which is exited and any existing artifacts.
+Go to the network directory and follow the commands:
+
+# ```sh
+# sudo ./clean.sh
+# ```
+if [ -d "channel-artifacts" ]; then
+  rm -Rf channel-artifacts && rm -Rf crypto-config
+fi
+
+ This command will clean any existing artifacts.
 
 ```sh
 mkdir channel-artifacts && mkdir crypto-config
@@ -77,7 +84,7 @@ This command will copy peerOrganizations directory from ca-network to crypto-con
 This command will generate all the channel related artifacts for the Fabric Network.
 
 ```sh
-docker-compose -f docker-compose-cli.yaml -f docker-compose-etcdraft2.yaml -f up -d
+docker-compose -f docker-compose-cli.yaml -f docker-compose-etcdraft2.yaml  up -d
 ```
 # If not workign try docker-compose -f docker-compose-basic-cli.yaml up -d
 
@@ -92,7 +99,7 @@ This command will open the cli for executing the peers command
 Once you are in the container you will be able to see the output like this
 
 ```sh
-bash-5.0#
+bash-5.1#
 ```
 
 Now, following are the commands which needs to be executed from the cli
@@ -106,6 +113,8 @@ This command with create the channel and join all Orgs.
 ./scripts/chaincode.sh
 ```
 This command with package and install chaincode on all peers.
+
+################################################################################
 
 # network down
 docker-compose -f docker-compose-cli.yaml -f docker-compose-etcdraft2.yaml  down
