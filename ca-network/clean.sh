@@ -12,3 +12,4 @@ rm -rf organizations/fabric-ca/city2
 rm -rf organizations/fabric-ca/city3
 rm -rf organizations/fabric-ca/ordererOrg
 
+
