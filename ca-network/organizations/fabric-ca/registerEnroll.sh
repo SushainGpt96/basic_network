@@ -592,7 +592,7 @@ function createOrderer {
   cp ${PWD}/organizations/ordererOrganizations/product.com/orderers/orderer5.product.com/tls/keystore/* ${PWD}/organizations/ordererOrganizations/product.com/orderers/orderer5.product.com/tls/server.key
 
   mkdir -p organizations/ordererOrganizations/product.com/users
-  mkdir -p organizations/ordererOrganizations/product.com/users/Admin@city1.product.com
+  mkdir -p organizations/ordererOrganizations/product.com/users/Admin@product.com
 
   echo
   echo "## Generate the admin msp"
