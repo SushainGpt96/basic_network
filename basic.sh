@@ -1,3 +1,4 @@
+function up {
 cd ca-network
 sudo ./clean.sh
 docker-compose -f docker-compose-ca.yaml up -d
@@ -13,3 +14,16 @@ cp -rvf ../ca-network/organizations/peerOrganizations ./crypto-config
 ./artifact.sh
 docker-compose -f docker-compose-cli.yaml -f docker-compose-etcdraft2.yaml  up -d
 docker exec -it cli bash
+}
+
+function down{
+  cd ca-network
+docker-compose -f docker-compose-ca.yaml down
+cd ../network
+docker-compose -f docker-compose-cli.yaml -f docker-compose-etcdraft2.yaml  down
+}
+
+function clean{
+cd ca-network
+sudo ./clean.sh
+}
