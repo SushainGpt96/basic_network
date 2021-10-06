@@ -138,6 +138,13 @@ func (s *SmartContract) DeleteProduct(ctx contractapi.TransactionContextInterfac
 	return ctx.GetStub().DelState(name)
 }
 
+// DeleteAllProducts deletes all products from the world state.
+func (s *SmartContract) DeleteAllProducts(ctx contractapi.TransactionContextInterface) error {
+
+	return ctx.GetStub().DelState("")
+}
+
+
 // ProductExists returns true when product with given name exists in world state
 func (s *SmartContract) ProductExists(ctx contractapi.TransactionContextInterface, name string) (bool, error) {
 	assetJSON, err := ctx.GetStub().GetState(name)
