@@ -45,13 +45,16 @@ cd ../network
 Go to the network directory and follow the commands:
 
 # ```sh
+
 # sudo ./clean.sh
+
 # ```
+
 if [ -d "channel-artifacts" ]; then
-  rm -Rf channel-artifacts && rm -Rf crypto-config
+rm -Rf channel-artifacts && rm -Rf crypto-config
 fi
 
- This command will clean any existing artifacts.
+This command will clean any existing artifacts.
 
 ```sh
 mkdir channel-artifacts && mkdir crypto-config
@@ -86,6 +89,7 @@ This command will generate all the channel related artifacts for the Fabric Netw
 ```sh
 docker-compose -f docker-compose-cli.yaml -f docker-compose-etcdraft2.yaml  up -d
 ```
+
 # If not workign try docker-compose -f docker-compose-basic-cli.yaml up -d
 
 This command will start all the peers, orderers and cli containers for the network.
@@ -107,38 +111,13 @@ Now, following are the commands which needs to be executed from the cli
 ```sh
 ./scripts/channel.sh
 ```
+
 This command with create the channel and join all Orgs.
 
 ```sh
 ./scripts/chaincode.sh
 ```
+
 This command with package and install chaincode on all peers.
 
 ################################################################################
-
-# network down
-docker-compose -f docker-compose-cli.yaml -f docker-compose-etcdraft2.yaml  down
-cd ../ca-network 
-docker-compose -f docker-compose-ca.yaml down
-#network kill
-docker rm -f $(docker ps -aq)
-docker image prune
-docker volume prune
-docker ps -a
-docker image
-
-# cd ca-network
-# ./clean.sh
-# ./network.sh
-# cd ../network
-# mkdir channel-artifacts && mkdir crypto-config
-# cp -rvf ../ca-network/organizations/fabric-ca ./crypto-config
-# cp -rvf ../ca-network/organizations/ordererOrganizations ./crypto-config
-# cp -rvf ../ca-network/organizations/peerOrganizations ./crypto-config
-# ./artifact.sh
-# docker-compose -f docker-compose-cli.yaml -f docker-compose-etcdraft2.yaml  up -d
-# # docker-compose -f docker-compose-basic-cli.yaml -f docker-compose-etcdraft2.yaml  up -d
-# docker exec -it cli bash
-# #inside bash
-# ./scripts/channel.sh
-# ./scripts/chaincode.sh
