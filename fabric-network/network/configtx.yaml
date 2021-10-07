@@ -1,0 +1,257 @@
+---
+################################################################################
+#
+#   Section: Organizations
+#
+#   - This section defines the different organizational identities which will
+#   be referenced later in the configuration.
+#
+################################################################################
+Organizations:
+  - &OrdererOrg
+    Name: OrdererOrg
+
+    ID: OrdererMSP
+
+    MSPDir: ./crypto-config/ordererOrganizations/product.com/msp
+
+    Policies:
+      Readers:
+        Type: Signature
+        Rule: "OR('OrdererMSP.member')"
+      Writers:
+        Type: Signature
+        Rule: "OR('OrdererMSP.member')"
+      Admins:
+        Type: Signature
+        Rule: "OR('OrdererMSP.admin')"
+
+  - &city1
+    Name: city1MSP
+
+    ID: city1MSP
+
+    MSPDir: ./crypto-config/peerOrganizations/city1.product.com/msp
+
+    Policies:
+      Readers:
+        Type: Signature
+        Rule: "OR('city1MSP.admin', 'city1MSP.peer', 'city1MSP.client')"
+      Writers:
+        Type: Signature
+        Rule: "OR('city1MSP.admin', 'city1MSP.client')"
+      Admins:
+        Type: Signature
+        Rule: "OR('city1MSP.admin')"
+      Endorsement:
+        Type: Signature
+        Rule: "OR('city1MSP.peer')"
+
+    AnchorPeers:
+      - Host: peer0.city1.product.com
+        Port: 7051
+
+  - &city2
+    Name: city2MSP
+
+    ID: city2MSP
+
+    MSPDir: ./crypto-config/peerOrganizations/city2.product.com/msp
+
+    Policies:
+      Readers:
+        Type: Signature
+        Rule: "OR('city2MSP.admin', 'city2MSP.peer', 'city2MSP.client')"
+      Writers:
+        Type: Signature
+        Rule: "OR('city2MSP.admin', 'city2MSP.client')"
+      Admins:
+        Type: Signature
+        Rule: "OR('city2MSP.admin')"
+      Endorsement:
+        Type: Signature
+        Rule: "OR('city2MSP.peer')"
+
+    AnchorPeers:
+      - Host: peer0.city2.product.com
+        Port: 9051
+
+  - &city3
+    Name: city3MSP
+
+    ID: city3MSP
+
+    MSPDir: ./crypto-config/peerOrganizations/city3.product.com/msp
+
+    Policies:
+      Readers:
+        Type: Signature
+        Rule: "OR('city3MSP.admin', 'city3MSP.peer', 'city3MSP.client')"
+      Writers:
+        Type: Signature
+        Rule: "OR('city3MSP.admin', 'city3MSP.client')"
+      Admins:
+        Type: Signature
+        Rule: "OR('city3MSP.admin')"
+      Endorsement:
+        Type: Signature
+        Rule: "OR('city3MSP.peer')"
+
+    AnchorPeers:
+      - Host: peer0.city3.product.com
+        Port: 11051
+
+################################################################################
+#   SECTION: Capabilities
+################################################################################
+
+Capabilities:
+  Channel: &ChannelCapabilities
+    V2_0: true
+
+  Orderer: &OrdererCapabilities
+    V2_0: true
+
+  Application: &ApplicationCapabilities
+    V2_0: true
+
+################################################################################
+#   SECTION: Application
+################################################################################
+Application: &ApplicationDefaults
+  Organizations:
+
+  Policies:
+    Readers:
+      Type: ImplicitMeta
+      Rule: "ANY Readers"
+    Writers:
+      Type: ImplicitMeta
+      Rule: "ANY Writers"
+    Admins:
+      Type: ImplicitMeta
+      Rule: "MAJORITY Admins"
+    LifecycleEndorsement:
+      Type: ImplicitMeta
+      Rule: "MAJORITY Endorsement"
+    Endorsement:
+      Type: ImplicitMeta
+      Rule: "MAJORITY Endorsement"
+
+  Capabilities:
+    <<: *ApplicationCapabilities
+
+################################################################################
+#   SECTION: Orderer
+################################################################################
+Orderer: &OrdererDefaults
+  OrdererType: etcdraft
+  EtcdRaft:
+    Consenters:
+      - Host: orderer.product.com
+        Port: 7050
+        ClientTLSCert: ./crypto-config/ordererOrganizations/product.com/orderers/orderer.product.com/tls/server.crt
+        ServerTLSCert: ./crypto-config/ordererOrganizations/product.com/orderers/orderer.product.com/tls/server.crt
+      - Host: orderer2.product.com
+        Port: 8050
+        ClientTLSCert: ./crypto-config/ordererOrganizations/product.com/orderers/orderer2.product.com/tls/server.crt
+        ServerTLSCert: ./crypto-config/ordererOrganizations/product.com/orderers/orderer2.product.com/tls/server.crt
+      - Host: orderer3.product.com
+        Port: 9050
+        ClientTLSCert: ./crypto-config/ordererOrganizations/product.com/orderers/orderer3.product.com/tls/server.crt
+        ServerTLSCert: ./crypto-config/ordererOrganizations/product.com/orderers/orderer3.product.com/tls/server.crt
+      - Host: orderer4.product.com
+        Port: 10050
+        ClientTLSCert: ./crypto-config/ordererOrganizations/product.com/orderers/orderer4.product.com/tls/server.crt
+        ServerTLSCert: ./crypto-config/ordererOrganizations/product.com/orderers/orderer4.product.com/tls/server.crt
+      - Host: orderer5.product.com
+        Port: 11050
+        ClientTLSCert: ./crypto-config/ordererOrganizations/product.com/orderers/orderer5.product.com/tls/server.crt
+        ServerTLSCert: ./crypto-config/ordererOrganizations/product.com/orderers/orderer5.product.com/tls/server.crt
+  Addresses:
+    - orderer.product.com:7050
+    - orderer2.product.com:8050
+    - orderer3.product.com:9050
+    - orderer4.product.com:10050
+    - orderer5.product.com:11050
+
+  BatchTimeout: 2s
+
+  BatchSize:
+    MaxMessageCount: 10
+
+    AbsoluteMaxBytes: 99 MB
+
+    PreferredMaxBytes: 512 KB
+
+  Organizations:
+
+  Policies:
+    Readers:
+      Type: ImplicitMeta
+      Rule: "ANY Readers"
+    Writers:
+      Type: ImplicitMeta
+      Rule: "ANY Writers"
+    Admins:
+      Type: ImplicitMeta
+      Rule: "MAJORITY Admins"
+    BlockValidation:
+      Type: ImplicitMeta
+      Rule: "ANY Writers"
+
+################################################################################
+#   CHANNEL
+################################################################################
+Channel: &ChannelDefaults
+  Policies:
+    Readers:
+      Type: ImplicitMeta
+      Rule: "ANY Readers"
+    Writers:
+      Type: ImplicitMeta
+      Rule: "ANY Writers"
+    Admins:
+      Type: ImplicitMeta
+      Rule: "MAJORITY Admins"
+
+  Capabilities:
+    <<: *ChannelCapabilities
+
+################################################################################
+#   Profile
+################################################################################
+Profiles:
+  productchannel:
+    Consortium: BasicConsortium
+    <<: *ChannelDefaults
+    Application:
+      <<: *ApplicationDefaults
+      Organizations:
+        - <<: *city1
+        - <<: *city2
+        - <<: *city3
+      Capabilities:
+        <<: *ApplicationCapabilities
+
+  OrdererChannel:
+    <<: *ChannelDefaults
+    Capabilities:
+      <<: *ChannelCapabilities
+    Orderer:
+      <<: *OrdererDefaults
+      OrdererType: etcdraft
+      Organizations:
+        - <<: *OrdererOrg
+      Capabilities:
+        <<: *OrdererCapabilities
+    Application:
+      <<: *ApplicationDefaults
+      Organizations:
+        - <<: *OrdererOrg
+    Consortiums:
+      BasicConsortium:
+        Organizations:
+          - <<: *city1
+          - <<: *city2
+          - <<: *city3
