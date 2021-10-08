@@ -9,7 +9,7 @@ const path = require('path');
 const fs = require('fs');
 
 
-module.exports.queryWalletDetails = async (username, channelName, contractName, functionName, name)=> {
+module.exports.queryProductDetails = async (username, channelName, contractName, functionName, name)=> {
     try {
         // load the network configuration
         // const ccpPath = path.resolve(__dirname, '.', 'network-connection.json');

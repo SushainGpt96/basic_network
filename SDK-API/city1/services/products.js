@@ -1,7 +1,7 @@
 const enrollAdmin = require('../sdk/enrollAdmin');
 const registerUser = require('../sdk/registerUser');
 const invokeChaincode = require('../sdk/invoke');
-const queryWalletDetails = require('../sdk/query');
+const queryProductDetails = require('../sdk/query');
 
 
 module.exports = {
@@ -40,7 +40,7 @@ module.exports = {
     queryChaincode: async (username, channelName, contractName, functionName, name )=>{
         console.log('Inside Query Chaincode Service')
         try {
-            let query = await queryWalletDetails.queryWalletDetails(username, channelName, contractName, functionName, name )
+            let query = await queryProductDetails.queryProductDetails(username, channelName, contractName, functionName, name )
             return query
         } catch (error) {
         console.log("error", error)
