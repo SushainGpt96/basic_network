@@ -9,7 +9,7 @@ router.post("/city3/viewProduct", productsController.viewProduct);
 router.post("/city3/viewAllProducts", productsController.viewAllProducts);
 router.post("/city3/updateProduct", productsController.updateProduct);
 router.post("/city3/deleteProduct", productsController.deleteProduct);
-router.post("/city3/deleteAllProduct", productsController.deleteAllProducts);
+router.post("/city3/deleteAllProducts", productsController.deleteAllProducts);
 router.post("/city3/transferProduct", productsController.transferProduct);
 
 module.exports = router;
