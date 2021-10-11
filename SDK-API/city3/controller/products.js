@@ -43,9 +43,9 @@ module.exports = {
         console.log("Inside viewProduct Controller")
         try {
             let username = req.body.username
-            let name = req.body.name
+            let arguments = [req.body.name]
 
-            let viewProduct = await products.queryChaincode(username, 'productchannel', 'products', 'ViewProduct', name)
+            let viewProduct = await products.queryChaincode(username, 'productchannel', 'products', 'ViewProduct', arguments)
             return responseHandler.sendResponse(res,200,viewProduct)
         } catch (error) {
             console.log("error", error)
@@ -56,8 +56,9 @@ module.exports = {
         console.log("Inside viewAllProduct Controller")
         try {
             let username = req.body.username
+            let arguments = []
 
-            let viewAllProducts = await products.queryChaincode(username, 'productchannel', 'products', 'ViewAllProducts')
+            let viewAllProducts = await products.queryChaincode(username, 'productchannel', 'products', 'ViewAllProducts', arguments)
             return responseHandler.sendResponse(res,200,viewAllProducts)
         } catch (error) {
             console.log("error", error)
@@ -83,10 +84,10 @@ module.exports = {
         console.log("Inside deleteProduct Controller")
         try {
             let username = req.body.username
-            let name = req.body.name
+            let arguments = [req.body.name]
 
-            let deleteProduct = await products.invokeChaincode(username, 'productchannel', 'products', 'DeleteProduct', name)
-            let msg = "Product"+ name+" has been deleted "+deleteProduct
+            let deleteProduct = await products.invokeChaincode(username, 'productchannel', 'products', 'DeleteProduct', arguments)
+            let msg = "Product"+ arguments+" has been deleted "+deleteProduct
             return responseHandler.sendResponse(res,200,msg)
         } catch (error) {
             console.log("error", error)
@@ -97,8 +98,8 @@ module.exports = {
         console.log("Inside deleteAllProducts Controller")
         try {
             let username = req.body.username
-
-            let deleteAllProducts = await products.invokeChaincode(username, 'productchannel', 'products', 'DeleteAllProductss')
+            let arguments = []
+            let deleteAllProducts = await products.invokeChaincode(username, 'productchannel', 'products', 'DeleteAllProductss', arguments)
             let msg = "Product"+ name+" has been deleted "+deleteAllProducts
             return responseHandler.sendResponse(res,200,msg)
         } catch (error) {

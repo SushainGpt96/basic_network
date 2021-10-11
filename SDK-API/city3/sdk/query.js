@@ -2,53 +2,77 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-'use strict';
+"use strict";
 
-const { Gateway, Wallets } = require('fabric-network');
-const path = require('path');
-const fs = require('fs');
+const { Gateway, Wallets } = require("fabric-network");
+const path = require("path");
+const fs = require("fs");
 
+module.exports.queryProductDetails = async (
+  username,
+  channelName,
+  contractName,
+  functionName,
+  name
+) => {
+  try {
+    // load the network configuration
+    // const ccpPath = path.resolve(__dirname, '.', 'network-connection.json');
+    const ccpPath = path.resolve(__dirname, ".", "connection-city3.json");
+    const ccp = JSON.parse(fs.readFileSync(ccpPath, "utf8"));
 
-module.exports.queryProductDetails = async (username, channelName, contractName, functionName, name)=> {
-    try {
-        // load the network configuration
-        // const ccpPath = path.resolve(__dirname, '.', 'network-connection.json');
-        const ccpPath = path.resolve(__dirname, '.', 'connection-city3.json');
-        const ccp = JSON.parse(fs.readFileSync(ccpPath, 'utf8'));
+    // Create a new file system based wallet for managing identities.
+    const walletPath = path.join(process.cwd(), "wallet");
+    const wallet = await Wallets.newFileSystemWallet(walletPath);
+    console.log(`Wallet path: ${walletPath}`);
 
-        // Create a new file system based wallet for managing identities.
-        const walletPath = path.join(process.cwd(), 'wallet');
-        const wallet = await Wallets.newFileSystemWallet(walletPath);
-        console.log(`Wallet path: ${walletPath}`);
+    let arrayOfArgs = Object.values(arguments);
+    console.log("arrayOfArgs", typeof arrayOfArgs.join());
+    console.log("details", arrayOfArgs);
 
-        // Check to see if we've already enrolled the user.
-        const identity = await wallet.get(username);
-        if (!identity) {
-            console.log('An identity for the user ',username,' does not exist in the wallet');
-            console.log('Run the registerUser.js application before retrying');
-            return 'An identity for the user '+username+' does not exist in the wallet';
-        }
+    // Check to see if we've already enrolled the user.
+    const identity = await wallet.get(username);
+    if (!identity) {
+      console.log(
+        "An identity for the user ",
+        username,
+        " does not exist in the wallet"
+      );
+      console.log("Run the registerUser.js application before retrying");
+      return (
+        "An identity for the user " + username + " does not exist in the wallet"
+      );
+    }
 
-        // Create a new gateway for connecting to our peer node.
-        const gateway = new Gateway();
-        await gateway.connect(ccp, { wallet, identity: username, discovery: { enabled: true, asLocalhost: false } });
+    // Create a new gateway for connecting to our peer node.
+    const gateway = new Gateway();
+    await gateway.connect(ccp, {
+      wallet,
+      identity: username,
+      discovery: { enabled: true, asLocalhost: false },
+    });
 
-        // Get the network (channel) our contract is deployed to.
-        const network = await gateway.getNetwork(channelName);
+    // Get the network (channel) our contract is deployed to.
+    const network = await gateway.getNetwork(channelName);
 
-        // Get the contract from the network.
-        const contract = network.getContract(contractName);
+    // Get the contract from the network.
+    const contract = network.getContract(contractName);
 
-        /*-----------------QueryWallet Details
+    /*-----------------QueryWallet Details
             await contract.evaluateTransaction('QueryWalletData','UniqueId')
         */
-        const result = await contract.evaluateTransaction(functionName, name);
-        console.log(`Transaction has been evaluated, result is: ${result.toString()}`);
-        let result1 = JSON.parse(result.toString())
-        return result1
-    } catch (error) {
-        console.error(`Failed to evaluate transaction: ${error}`);
-        return error
-        process.exit(1);
-    }
-}
+    const result = await contract.evaluateTransaction(
+      functionName,
+      ...arrayOfArgs
+    );
+    console.log(
+      `Transaction has been evaluated, result is: ${result.toString()}`
+    );
+    let result1 = JSON.parse(result.toString());
+    return result1;
+  } catch (error) {
+    console.error(`Failed to evaluate transaction: ${error}`);
+    return error;
+    process.exit(1);
+  }
+};

@@ -21,6 +21,10 @@ module.exports.queryProductDetails = async (username, channelName, contractName,
         const wallet = await Wallets.newFileSystemWallet(walletPath);
         console.log(`Wallet path: ${walletPath}`);
 
+        let arrayOfArgs = Object.values(arguments)
+        console.log('arrayOfArgs', typeof arrayOfArgs.join())
+        console.log('details',arrayOfArgs)
+
         // Check to see if we've already enrolled the user.
         const identity = await wallet.get(username);
         if (!identity) {
@@ -42,7 +46,7 @@ module.exports.queryProductDetails = async (username, channelName, contractName,
         /*-----------------QueryWallet Details
             await contract.evaluateTransaction('QueryWalletData','UniqueId')
         */
-        const result = await contract.evaluateTransaction(functionName, name);
+        const result = await contract.evaluateTransaction(functionName, ...arrayOfArgs);
         console.log(`Transaction has been evaluated, result is: ${result.toString()}`);
         let result1 = JSON.parse(result.toString())
         return result1
