@@ -41,7 +41,7 @@ module.exports.enrollAdmin = async ()=> {
                 certificate: enrollment.certificate,
                 privateKey: enrollment.key.toBytes(),
             },
-            mspId: 'usersMSP',
+            mspId: 'city3MSP',
             type: 'X.509',
         };
         await wallet.put('admin', x509Identity);
