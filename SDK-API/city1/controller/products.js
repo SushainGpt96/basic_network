@@ -100,7 +100,7 @@ module.exports = {
             let username = req.body.username
             let arguments = []
             let deleteAllProducts = await products.invokeChaincode(username, 'productchannel', 'products', 'DeleteAllProductss', arguments)
-            let msg = "Product"+ name+" has been deleted "+deleteAllProducts
+            let msg = "All products have been deleted "+deleteAllProducts
             return responseHandler.sendResponse(res,200,msg)
         } catch (error) {
             console.log("error", error)
