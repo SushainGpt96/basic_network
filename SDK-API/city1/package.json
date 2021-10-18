@@ -1,53 +1,27 @@
 {
-    "name": "products",
-    "version": "1.0.0",
-    "description": "Products- Product inventory helper between 3 cities",
-    "engines": {
-        "node": ">=8",
-        "npm": ">=5"
-    },
-    "scripts": {
-        "start": "node ./app.js",
-        "dev": "nodemon ./app.js",
-        "lint": "eslint .",
-        "pretest": "npm run lint",
-        "test": "nyc mocha --recursive"
-    },
-    "engineStrict": true,
-    "author": "Hyperledger",
-    "license": "Apache-2.0",
-    "dependencies": {
-        "body-parser": "^1.19.0",
-        "eslint-config-airbnb-base": "^14.1.0",
-        "eslint-plugin-import": "^2.20.2",
-        "express": "^4.17.1",
-        "fabric-ca-client": "beta",
-        "fabric-network": "beta",
-        "http": "0.0.0",
-        "morgan": "^1.10.0"
-    },
-    "devDependencies": {
-        "chai": "^4.2.0",
-        "eslint": "^5.16.0",
-        "mocha": "^5.2.0",
-        "nyc": "^14.1.1",
-        "sinon": "^7.1.1",
-        "sinon-chai": "^3.3.0"
-    },
-    "nyc": {
-        "exclude": [
-            "coverage/**",
-            "test/**"
-        ],
-        "reporter": [
-            "text-summary",
-            "html"
-        ],
-        "all": true,
-        "check-coverage": true,
-        "statements": 100,
-        "branches": 100,
-        "functions": 100,
-        "lines": 100
-    }
+  "name": "products",
+  "version": "1.0.0",
+  "description": "Products- Product inventory helper between 3 cities",
+  "engines": {
+    "node": ">=8",
+    "npm": ">=5"
+  },
+  "scripts": {
+    "start": "node ./app.js",
+    "dev": "nodemon ./app.js"
+  },
+  "engineStrict": true,
+  "author": "Hyperledger",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-import": "^2.20.2",
+    "express": "^4.17.1",
+    "fabric-ca-client": "^2.2.9",
+    "fabric-network": "^2.2.9",
+    "http": "0.0.0",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.13"
+  }
 }
