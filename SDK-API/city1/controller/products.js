@@ -16,8 +16,8 @@ module.exports = {
     registerUser : async (req,res)=> {
         console.log("Inside Register User Controller")
         try {
-            // let username = req.body.username
-            let username = "raj2@product.com"
+            let username = req.body.username
+            // let username = "raj2@product.com"
             if (!username){
                 console.log("No username added")
             }
