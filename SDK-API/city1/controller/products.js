@@ -1,6 +1,7 @@
 const products = require('../services/products')
 const responseHandler =  require('../middleware/responseHandler')
 
+
 module.exports = {
     registerAdmin : async (req, res)=> {
         console.log("Inside Register Admin Controller")
@@ -15,8 +16,11 @@ module.exports = {
     registerUser : async (req,res)=> {
         console.log("Inside Register User Controller")
         try {
-            let username = req.body.username
-
+            // let username = req.body.username
+            let username = "raj2@product.com"
+            if (!username){
+                console.log("No username added")
+            }
             let register = await products.registerUser(username)
             return responseHandler.sendResponse(res,200,register)
         } catch (error) {
@@ -55,7 +59,8 @@ module.exports = {
     viewAllProducts : async (req,res)=> {
         console.log("Inside viewAllProduct Controller")
         try {
-            let username = req.body.username
+            // let username = req.body.username
+            let username = "raj2@product.com"
             let arguments = []
 
             let viewAllProducts = await products.queryChaincode(username, 'productchannel', 'products', 'ViewAllProducts', arguments)
