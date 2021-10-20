@@ -30,7 +30,7 @@ services:
       - CORE_PEER_LISTENADDRESS=0.0.0.0:7051
       - CORE_PEER_CHAINCODEADDRESS=peer0.city1.product.com:7052
       - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:7052
-      - CORE_PEER_GOSSIP_BOOTSTRAP=peer1.city1.product.com:7051
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer1.city1.product.com:8051
       - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.city1.product.com:7051
       - CORE_PEER_LOCALMSPID=city1MSP
     volumes:
@@ -52,7 +52,7 @@ services:
       - CORE_PEER_LISTENADDRESS=0.0.0.0:8051
       - CORE_PEER_CHAINCODEADDRESS=peer1.city1.product.com:8052
       - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:8052
-      - CORE_PEER_GOSSIP_BOOTSTRAP=peer1.city1.product.com:8051
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.city1.product.com:7051
       - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer1.city1.product.com:8051
       - CORE_PEER_LOCALMSPID=city1MSP
     volumes:
@@ -74,7 +74,7 @@ services:
       - CORE_PEER_LISTENADDRESS=0.0.0.0:9051
       - CORE_PEER_CHAINCODEADDRESS=peer0.city2.product.com:9052
       - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:9052
-      - CORE_PEER_GOSSIP_BOOTSTRAP=peer1.city2.product.com:9051
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer1.city2.product.com:10051
       - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.city2.product.com:9051
       - CORE_PEER_LOCALMSPID=city2MSP
     volumes:
@@ -96,7 +96,7 @@ services:
       - CORE_PEER_LISTENADDRESS=0.0.0.0:10051
       - CORE_PEER_CHAINCODEADDRESS=peer1.city2.product.com:10052
       - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:10052
-      - CORE_PEER_GOSSIP_BOOTSTRAP=peer1.city2.product.com:10051
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.city2.product.com:9051
       - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer1.city2.product.com:10051
       - CORE_PEER_LOCALMSPID=city2MSP
     volumes:
@@ -118,7 +118,7 @@ services:
       - CORE_PEER_LISTENADDRESS=0.0.0.0:11051
       - CORE_PEER_CHAINCODEADDRESS=peer0.city3.product.com:11052
       - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:11052
-      - CORE_PEER_GOSSIP_BOOTSTRAP=peer1.city3.product.com:11051
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer1.city3.product.com:12051
       - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.city3.product.com:11051
       - CORE_PEER_LOCALMSPID=city3MSP
     volumes:
@@ -140,7 +140,7 @@ services:
       - CORE_PEER_LISTENADDRESS=0.0.0.0:12051
       - CORE_PEER_CHAINCODEADDRESS=peer1.city3.product.com:12052
       - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:12052
-      - CORE_PEER_GOSSIP_BOOTSTRAP=peer1.city3.product.com:12051
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.city3.product.com:11051
       - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer1.city3.product.com:12051
       - CORE_PEER_LOCALMSPID=city3MSP
     volumes:
