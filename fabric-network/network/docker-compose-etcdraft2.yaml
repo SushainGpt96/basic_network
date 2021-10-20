@@ -22,6 +22,7 @@ services:
     environment:
       - ORDERER_GENERAL_LISTENPORT=8050
     container_name: orderer2.product.com
+    platform: linux/x86_64
     networks:
       - network
     volumes:
@@ -39,6 +40,7 @@ services:
     environment:
       - ORDERER_GENERAL_LISTENPORT=9050
     container_name: orderer3.product.com
+    platform: linux/x86_64
     networks:
       - network
     volumes:
@@ -56,6 +58,7 @@ services:
     environment:
       - ORDERER_GENERAL_LISTENPORT=10050
     container_name: orderer4.product.com
+    platform: linux/x86_64
     networks:
       - network
     volumes:
@@ -73,6 +76,7 @@ services:
     environment:
       - ORDERER_GENERAL_LISTENPORT=11050
     container_name: orderer5.product.com
+    platform: linux/x86_64
     networks:
       - network
     volumes:

@@ -6,6 +6,7 @@ networks:
 services:
   ca.city1.product.com:
     image: hyperledger/fabric-ca:$IMAGE_TAG
+    platform: linux/x86_64
     labels:
       service: hyperledger-fabric
     environment:
@@ -27,6 +28,7 @@ services:
 
   ca.city2.product.com:
     image: hyperledger/fabric-ca:$IMAGE_TAG
+    platform: linux/x86_64
     labels:
       service: hyperledger-fabric
     environment:
@@ -45,6 +47,7 @@ services:
 
   ca.city3.product.com:
     image: hyperledger/fabric-ca:$IMAGE_TAG
+    platform: linux/x86_64
     labels:
       service: hyperledger-fabric
     environment:
@@ -63,6 +66,7 @@ services:
 
   ca.orderer.product.com:
     image: hyperledger/fabric-ca:$IMAGE_TAG
+    platform: linux/x86_64
     labels:
       service: hyperledger-fabric
     environment:

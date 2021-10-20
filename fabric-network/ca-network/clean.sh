@@ -2,8 +2,8 @@
 
 docker kill $(docker ps -q)
 docker rm -f $(docker ps -aq)
-docker image prune
-docker volume prune
+echo "y" | docker image prune
+echo "y" | docker volume prune
 docker ps -a
 docker image
 

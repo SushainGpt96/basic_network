@@ -6,6 +6,3 @@ docker image prune
 docker volume prune
 docker ps -a
 docker image
-
-
-
