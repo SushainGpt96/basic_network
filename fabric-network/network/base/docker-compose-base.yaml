@@ -7,13 +7,14 @@ services:
       file: peer-base.yaml
       service: orderer-base
     environment:
+      # - ORDERER_OPERATIONS_LISTENADDRESS=0.0.0.0:7050 #iteration
       - ORDERER_GENERAL_LISTENPORT=7050
 
     volumes:
       # - ./:/etc/hyperledger/configtx
       - ../channel-artifacts/genesis.block:/var/hyperledger/orderer/orderer.genesis.block
       - ../crypto-config/ordererOrganizations/product.com/orderers/orderer.product.com/msp:/var/hyperledger/orderer/msp
-      - ../crypto-config/ordererOrganizations/product.com/orderers/orderer.Product.com/tls/:/var/hyperledger/orderer/tls
+      - ../crypto-config/ordererOrganizations/product.com/orderers/orderer.product.com/tls/:/var/hyperledger/orderer/tls
       - orderer.product.com:/var/hyperledger/production/orderer
     ports:
       - 7050:7050

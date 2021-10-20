@@ -14,8 +14,12 @@ cp -rvf ../ca-network/organizations/peerOrganizations ./crypto-config
 ./artifact.sh
 docker-compose -f docker-compose-cli.yaml -f docker-compose-etcdraft2.yaml  up -d
 # docker-compose -f docker-compose-basic-cli.yaml -f docker-compose-etcdraft2.yaml  up -d
-docker exec -it cli bash
+# docker exec -it cli bash
 # }
+sleep 5
+docker exec -it cli bash ./scripts/channel.sh
+docker exec -it cli bash ./scripts/chaincode.sh
+docker exec -it cli bash
 
 # function down{
 # cd ca-network

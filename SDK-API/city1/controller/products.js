@@ -17,7 +17,7 @@ module.exports = {
         console.log("Inside Register User Controller")
         try {
             let username = req.body.username
-            // let username = "raj2@product.com"
+            // let username = "raj6@product.com"
             if (!username){
                 console.log("No username added")
             }
@@ -59,8 +59,8 @@ module.exports = {
     viewAllProducts : async (req,res)=> {
         console.log("Inside viewAllProduct Controller")
         try {
-            // let username = req.body.username
-            let username = "raj2@product.com"
+            let username = req.body.username
+            // let username = "raj2@product.com"
             let arguments = []
 
             let viewAllProducts = await products.queryChaincode(username, 'productchannel', 'products', 'ViewAllProducts', arguments)

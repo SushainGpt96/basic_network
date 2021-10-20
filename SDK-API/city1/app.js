@@ -2,11 +2,14 @@ const api = require("./app.route");
 const express = require("express");
 const http = require("http");
 const app = express();
-const bodyParser = require("body-parser");
+// const bodyParser = require("body-parser");
 const logger = require("morgan");
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 app.use(logger("dev"));
 

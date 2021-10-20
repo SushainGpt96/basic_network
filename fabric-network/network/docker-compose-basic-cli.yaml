@@ -40,6 +40,7 @@ services:
       - ORDERER_GENERAL_CLUSTER_ROOTCAS=[/var/hyperledger/orderer/tls/ca.crt]
       - ORDERER_GENERAL_BOOTSTRAPMETHOD=file
       - ORDERER_GENERAL_BOOTSTRAPFILE=/var/hyperledger/orderer/orderer.genesis.block
+      #to be checked
       - ORDERER_CHANNELPARTICIPATION_ENABLED=true
       - ORDERER_ADMIN_TLS_ENABLED=true
       - ORDERER_ADMIN_TLS_CERTIFICATE=/var/hyperledger/orderer/tls/server.crt
@@ -72,7 +73,7 @@ services:
       # - orderer.product.com:/var/hyperledger/production/orderer
       - ./channel-artifacts/genesis.block:/var/hyperledger/orderer/orderer.genesis.block
       - ./crypto-config/ordererOrganizations/product.com/orderers/orderer.product.com/msp:/var/hyperledger/orderer/msp
-      - ./crypto-config/ordererOrganizations/product.com/orderers/orderer.Product.com/tls/:/var/hyperledger/orderer/tls
+      - ./crypto-config/ordererOrganizations/product.com/orderers/orderer.product.com/tls/:/var/hyperledger/orderer/tls
       - orderer.product.com:/var/hyperledger/production/orderer
     ports:
       - 7050:7050
