@@ -1,0 +1,145 @@
+version: "3.7"
+
+networks:
+  network:
+
+# volumes:
+#   couchdb_products_vol:
+
+services:
+  couchdb0.city1.product.com:
+    container_name: couchdb0.city1.product.com
+    image: couchdb:3.1.1
+    labels:
+      service: hyperledger-fabric
+    environment:
+      - COUCHDB_USER=admin
+      - COUCHDB_PASSWORD=adminpw
+    ports:
+      - "5984:5984"
+    networks:
+      - network
+
+  peer0.city1.product.com:
+    environment:
+      - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb0.city1.product.com:5984
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME=admin
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD=adminpw
+    depends_on:
+      - couchdb0.city1.product.com
+
+  couchdb1.city1.product.com:
+    container_name: couchdb1.city1.product.com
+    image: couchdb:3.1.1
+    environment:
+      - COUCHDB_USER=admin
+      - COUCHDB_PASSWORD=adminpw
+    ports:
+      - "6984:5984"
+    networks:
+      - network
+
+  peer1.city1.product.com:
+    environment:
+      - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb1.city1.product.com:5984
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME=admin
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD=adminpw
+    depends_on:
+      - couchdb1.city1.product.com
+
+  couchdb0.city2.product.com:
+    container_name: couchdb0.city2.product.com
+    image: couchdb:3.1.1
+    environment:
+      - COUCHDB_USER=admin
+      - COUCHDB_PASSWORD=adminpw
+    ports:
+      - "7984:5984"
+    networks:
+      - network
+
+  peer0.city2.product.com:
+    environment:
+      - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb0.city2.product.com:5984
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME=admin
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD=adminpw
+    depends_on:
+      - couchdb0.city2.product.com
+
+  couchdb1.city2.product.com:
+    container_name: couchdb1.city2.product.com
+    image: couchdb:3.1.1
+    environment:
+      - COUCHDB_USER=admin
+      - COUCHDB_PASSWORD=adminpw
+    ports:
+      - "8984:5984"
+    networks:
+      - network
+
+  peer1.city2.product.com:
+    environment:
+      - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb1.city2.product.com:5984
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME=admin
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD=adminpw
+    depends_on:
+      - couchdb1.city2.product.com
+
+  couchdb0.city3.product.com:
+    container_name: couchdb0.city3.product.com
+    image: couchdb:3.1.1
+    labels:
+      service: hyperledger-fabric
+    environment:
+      - COUCHDB_USER=admin
+      - COUCHDB_PASSWORD=adminpw
+    ports:
+      - "9984:5984"
+    networks:
+      - network
+
+  peer0.city3.product.com:
+    environment:
+      - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb0.city3.product.com:5984
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME=admin
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD=adminpw
+    depends_on:
+      - couchdb0.city3.product.com
+
+  couchdb1.city3.product.com:
+    container_name: couchdb1.city3.product.com
+    image: couchdb:3.1.1
+    environment:
+      - COUCHDB_USER=admin
+      - COUCHDB_PASSWORD=adminpw
+    ports:
+      - "10984:5984"
+    networks:
+      - network
+
+  peer1.city3.product.com:
+    environment:
+      - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb1.city3.product.com:5984
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME=admin
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD=adminpw
+    depends_on:
+      - couchdb1.city3.product.com
+
+  # couchdb_products:
+  #   image: couchdb:3.1.1
+  #   container_name: couchdb_products
+  #   hostname: couchdb_products
+  #   network_mode: bridge
+  #   environment:
+  #     - COUCHDB_USER=admin
+  #     - COUCHDB_PASSWORD=adminpw
+  #   ports:
+  #     - "9984:5984"
+  #   volumes:
+  #     - couchdb_wallet_vol:/opt/couchdb/data

@@ -87,7 +87,7 @@ This command will copy peerOrganizations directory from ca-network to crypto-con
 This command will generate all the channel related artifacts for the Fabric Network.
 
 ```sh
-docker-compose -f docker-compose-cli.yaml -f docker-compose-etcdraft2.yaml  up -d
+docker-compose -f docker-compose-cli.yaml -f docker-compose-etcdraft2.yaml -f docker-compose-couchdb.yaml up -d
 ```
 
 # If not workign try docker-compose -f docker-compose-basic-cli.yaml up -d
