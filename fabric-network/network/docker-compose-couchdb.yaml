@@ -3,8 +3,8 @@ version: "3.7"
 networks:
   network:
 
-# volumes:
-#   couchdb_products_vol:
+volumes:
+  couchdb_wallet_vol:
 
 services:
   couchdb0.city1.product.com:
@@ -131,15 +131,15 @@ services:
     depends_on:
       - couchdb1.city3.product.com
 
-  # couchdb_products:
-  #   image: couchdb:3.1.1
-  #   container_name: couchdb_products
-  #   hostname: couchdb_products
-  #   network_mode: bridge
-  #   environment:
-  #     - COUCHDB_USER=admin
-  #     - COUCHDB_PASSWORD=adminpw
-  #   ports:
-  #     - "9984:5984"
-  #   volumes:
-  #     - couchdb_wallet_vol:/opt/couchdb/data
+  couchdb_wallet:
+    image: couchdb:3.1.1
+    container_name: couchdb_wallet
+    hostname: couchdb_wallet
+    network_mode: bridge
+    environment:
+      - COUCHDB_USER=admin
+      - COUCHDB_PASSWORD=adminpw
+    ports:
+      - "11984:5984"
+    volumes:
+      - couchdb_wallet_vol:/opt/couchdb/data
