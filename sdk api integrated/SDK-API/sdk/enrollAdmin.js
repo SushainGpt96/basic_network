@@ -31,8 +31,11 @@ module.exports.enrollAdmin = async (org) => {
     // const walletPath = path.join(process.cwd(), `wallet-${org}`);
     // const wallet = await Wallets.newFileSystemWallet(walletPath);
     // console.log(`Wallet path: ${walletPath}`);
-    
-    const wallet = await Wallets.newCouchDBWallet('couchdb_wallet:5984','couchdb_wallet_vol')
+
+    const wallet = await Wallets.newCouchDBWallet(
+      "https://admin:adminpw@localhost:11984",
+      `${org}_db`
+    );
 
     // Check to see if we've already enrolled the admin user.
     const identity = await wallet.get("admin");

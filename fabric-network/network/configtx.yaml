@@ -26,6 +26,9 @@ Organizations:
         Type: Signature
         Rule: "OR('OrdererMSP.admin')"
 
+    OrdererEndpoints:
+      - orderer.product.com:7050
+
   - &city1
     Name: city1MSP
 
@@ -39,7 +42,7 @@ Organizations:
         Rule: "OR('city1MSP.admin', 'city1MSP.peer', 'city1MSP.client')"
       Writers:
         Type: Signature
-        Rule: "OR('city1MSP.admin', 'city1MSP.client')"
+        Rule: "OR('city1MSP.admin', 'city1MSP.client', 'city1MSP.peer')"
       Admins:
         Type: Signature
         Rule: "OR('city1MSP.admin')"
@@ -64,7 +67,7 @@ Organizations:
         Rule: "OR('city2MSP.admin', 'city2MSP.peer', 'city2MSP.client')"
       Writers:
         Type: Signature
-        Rule: "OR('city2MSP.admin', 'city2MSP.client')"
+        Rule: "OR('city2MSP.admin', 'city2MSP.client', 'city2MSP.peer')"
       Admins:
         Type: Signature
         Rule: "OR('city2MSP.admin')"
@@ -89,7 +92,7 @@ Organizations:
         Rule: "OR('city3MSP.admin', 'city3MSP.peer', 'city3MSP.client')"
       Writers:
         Type: Signature
-        Rule: "OR('city3MSP.admin', 'city3MSP.client')"
+        Rule: "OR('city3MSP.admin', 'city3MSP.client', 'city3MSP.peer')"
       Admins:
         Type: Signature
         Rule: "OR('city3MSP.admin')"

@@ -3,7 +3,7 @@ echo "##########################################################"
 echo "##Install, approve and check commit readiness for City1 ##"
 echo "##########################################################"
 
-peer lifecycle chaincode package products.tar.gz --path /opt/gopath/src/github.com/hyperledger/fabric/peer/chaincode/products --lang golang --label basic_1.0
+peer lifecycle chaincode package products.tar.gz --path /opt/gopath/src/github.com/hyperledger/fabric/peer/chaincode-rest/products --lang golang --label basic_1.0
 
 #Globals for City 1
 export CORE_PEER_LOCALMSPID=city1MSP
