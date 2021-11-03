@@ -24,14 +24,14 @@ module.exports.registerUser = async (username, org) => {
     const ca = new FabricCAServices(caURL);
 
     // // Create a new file system based wallet for managing identities.
-    // const walletPath = path.join(process.cwd(), `wallet-${org}`);
-    // const wallet = await Wallets.newFileSystemWallet(walletPath);
-    // console.log(`Wallet path: ${walletPath}`);
+    const walletPath = path.join(process.cwd(), `wallet-${org}`);
+    const wallet = await Wallets.newFileSystemWallet(walletPath);
+    console.log(`Wallet path: ${walletPath}`);
 
-    const wallet = await Wallets.newCouchDBWallet(
-      "https://admin:adminpw@localhost:11984",
-      `${org}_db`
-    );
+    // const wallet = await Wallets.newCouchDBWallet(
+    //   "https://admin:adminpw@localhost:11984",
+    //   `${org}_db`
+    // );
 
     // Check to see if we've already enrolled the user.
     const userIdentity = await wallet.get(username);

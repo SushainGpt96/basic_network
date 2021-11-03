@@ -23,14 +23,14 @@ module.exports.queryProductDetails = async (
     const ccp = JSON.parse(fs.readFileSync(ccpPath, "utf8"));
 
     // Create a new file system based wallet for managing identities.
-    // const walletPath = path.join(process.cwd(), `wallet-${org}`);
-    // const wallet = await Wallets.newFileSystemWallet(walletPath);
-    // console.log(`Wallet path: ${walletPath}`);
+    const walletPath = path.join(process.cwd(), `wallet-${org}`);
+    const wallet = await Wallets.newFileSystemWallet(walletPath);
+    console.log(`Wallet path: ${walletPath}`);
 
-    const wallet = await Wallets.newCouchDBWallet(
-      "https://admin:adminpw@localhost:11984",
-      `${org}_db`
-    );
+    // const wallet = await Wallets.newCouchDBWallet(
+    //   "https://admin:adminpw@localhost:11984",
+    //   `${org}_db`
+    // );
 
     let arrayOfArgs = Object.values(args);
     console.log("arrayOfArgs", typeof arrayOfArgs.join());
