@@ -16,6 +16,10 @@ docker-compose -f docker-compose-cli.yaml -f docker-compose-etcdraft2.yaml -f do
 # docker-compose -f docker-compose-basic-cli.yaml -f docker-compose-etcdraft2.yaml  up -d
 # docker exec -it cli bash
 # }
+
+# cd ./../chaincode/products 
+# GO111MODULE=on go mod vendor
+
 sleep 5
 docker exec -it cli bash ./scripts/channel.sh
 docker exec -it cli bash ./scripts/chaincode.sh
