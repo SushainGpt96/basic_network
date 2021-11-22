@@ -33,6 +33,7 @@ services:
       - CORE_PEER_GOSSIP_BOOTSTRAP=peer1.city1.product.com:8051
       - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.city1.product.com:7051
       - CORE_PEER_LOCALMSPID=city1MSP
+      # - CORE_OPERATIONS_LISTENADDRESS=0.0.0.0:17051
     volumes:
       - /var/run/:/host/var/run/
       - ../crypto-config/peerOrganizations/city1.product.com/peers/peer0.city1.product.com/msp:/etc/hyperledger/fabric/msp
@@ -40,6 +41,7 @@ services:
       - peer0.city1.product.com:/var/hyperledger/production
     ports:
       - 7051:7051
+      # - 17051:17051
 
   peer1.city1.product.com:
     container_name: peer1.city1.product.com
@@ -55,6 +57,7 @@ services:
       - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.city1.product.com:7051
       - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer1.city1.product.com:8051
       - CORE_PEER_LOCALMSPID=city1MSP
+      # - CORE_OPERATIONS_LISTENADDRESS=0.0.0.0:18051
     volumes:
       - /var/run/:/host/var/run/
       - ../crypto-config/peerOrganizations/city1.product.com/peers/peer1.city1.product.com/msp:/etc/hyperledger/fabric/msp
@@ -62,6 +65,7 @@ services:
       - peer1.city1.product.com:/var/hyperledger/production
     ports:
       - 8051:8051
+      # - 18051:18051
 
   peer0.city2.product.com:
     container_name: peer0.city2.product.com
@@ -77,6 +81,8 @@ services:
       - CORE_PEER_GOSSIP_BOOTSTRAP=peer1.city2.product.com:10051
       - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.city2.product.com:9051
       - CORE_PEER_LOCALMSPID=city2MSP
+      # - CORE_OPERATIONS_LISTENADDRESS=0.0.0.0:19051
+
     volumes:
       - /var/run/:/host/var/run/
       - ../crypto-config/peerOrganizations/city2.product.com/peers/peer0.city2.product.com/msp:/etc/hyperledger/fabric/msp
@@ -84,6 +90,7 @@ services:
       - peer0.city2.product.com:/var/hyperledger/production
     ports:
       - 9051:9051
+      # - 19051:19051
 
   peer1.city2.product.com:
     container_name: peer1.city2.product.com
@@ -99,6 +106,7 @@ services:
       - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.city2.product.com:9051
       - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer1.city2.product.com:10051
       - CORE_PEER_LOCALMSPID=city2MSP
+      # - CORE_OPERATIONS_LISTENADDRESS=0.0.0.0:20051
     volumes:
       - /var/run/:/host/var/run/
       - ../crypto-config/peerOrganizations/city2.product.com/peers/peer1.city2.product.com/msp:/etc/hyperledger/fabric/msp
@@ -106,6 +114,7 @@ services:
       - peer1.city2.product.com:/var/hyperledger/production
     ports:
       - 10051:10051
+      # - 20051:20051
 
   peer0.city3.product.com:
     container_name: peer0.city3.product.com
@@ -121,6 +130,7 @@ services:
       - CORE_PEER_GOSSIP_BOOTSTRAP=peer1.city3.product.com:12051
       - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.city3.product.com:11051
       - CORE_PEER_LOCALMSPID=city3MSP
+      # - CORE_OPERATIONS_LISTENADDRESS=0.0.0.0:21051
     volumes:
       - /var/run/:/host/var/run/
       - ../crypto-config/peerOrganizations/city3.product.com/peers/peer0.city3.product.com/msp:/etc/hyperledger/fabric/msp
@@ -128,6 +138,7 @@ services:
       - peer0.city3.product.com:/var/hyperledger/production
     ports:
       - 11051:11051
+      # - 21051:21051
 
   peer1.city3.product.com:
     container_name: peer1.city3.product.com
@@ -143,6 +154,7 @@ services:
       - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.city3.product.com:11051
       - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer1.city3.product.com:12051
       - CORE_PEER_LOCALMSPID=city3MSP
+      # - CORE_OPERATIONS_LISTENADDRESS=0.0.0.0:22051
     volumes:
       - /var/run/:/host/var/run/
       - ../crypto-config/peerOrganizations/city3.product.com/peers/peer1.city3.product.com/msp:/etc/hyperledger/fabric/msp
@@ -150,3 +162,4 @@ services:
       - peer1.city3.product.com:/var/hyperledger/production
     ports:
       - 12051:12051
+      # - 22051:22051
