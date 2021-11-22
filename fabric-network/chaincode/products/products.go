@@ -141,7 +141,30 @@ func (s *SmartContract) DeleteProduct(ctx contractapi.TransactionContextInterfac
 // DeleteAllProducts deletes all products from the world state.
 func (s *SmartContract) DeleteAllProducts(ctx contractapi.TransactionContextInterface) error {
 
-	return ctx.GetStub().DelState("")
+	resultsIterator, err := ctx.GetStub().GetStateByRange("", "")
+	if err != nil {
+		return  err
+	}
+	defer resultsIterator.Close()
+
+	for resultsIterator.HasNext() {
+		queryResponse, err := resultsIterator.Next()
+		if err != nil {
+			return  err
+		}
+
+		var existingProduct Product
+		err = json.Unmarshal(queryResponse.Value, &existingProduct)
+		if err != nil {
+			return  err
+		}
+
+		errStub := ctx.GetStub().DelState(queryResponse.Key)
+		if errStub != nil {
+			return  errStub
+		}
+	}
+	return err
 }
 
 
