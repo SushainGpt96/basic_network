@@ -477,7 +477,7 @@ function createOrderer {
 	mkdir -p organizations/ordererOrganizations/product.com/orderers
   ##to be checked
 
-  mkdir -p organizations/ordererOrganizations/product.com/orderers/product.com
+  # mkdir -p organizations/ordererOrganizations/product.com/orderers/product.com
 
   mkdir -p organizations/ordererOrganizations/product.com/orderers/orderer.product.com
   mkdir -p organizations/ordererOrganizations/product.com/orderers/orderer2.product.com
